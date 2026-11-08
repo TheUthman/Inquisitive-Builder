@@ -1,5 +1,5 @@
 export const profile = {
-  name: 'Your name here',
+  name: 'Uthman Adebola',
   role: 'Software engineer · curious by nature',
   headline: 'Curiosity, in progress.',
   shortBio: 'I like understanding things. And building them.',

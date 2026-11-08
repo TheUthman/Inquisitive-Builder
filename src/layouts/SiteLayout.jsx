@@ -4,6 +4,7 @@ import { Link, NavLink, Outlet } from 'react-router-dom'
 import { useTheme } from '../components/ThemeProvider'
 
 const links = [
+  { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
   { to: '/projects', label: 'Work' },
   { to: '/exploration', label: 'Explore' },
