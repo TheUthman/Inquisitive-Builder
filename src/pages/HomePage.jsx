@@ -55,7 +55,6 @@ export default function HomePage() {
 
       <section className="section-block page-wrap" id="selected-work">
         <SectionHeading eyebrow="Selected work · 01—03" title="A few things made with care." description="A sample set of projects to show the shape of this portfolio. The details are placeholders, ready for your own work." action={<Link className="text-link" to="/projects">All projects <ArrowRight aria-hidden="true" /></Link>} />
-        <SourceNote error={projectResponse.error} />
         <div className="project-grid">
           {featuredProjects.map((project, index) => <ProjectCard key={project.id || project.slug} project={project} index={index} />)}
         </div>

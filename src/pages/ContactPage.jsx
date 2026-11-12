@@ -51,7 +51,6 @@ export default function ContactPage() {
   return (
     <main id="main-content" className="page-wrap inner-page contact-page">
       <PageIntro eyebrow="A good place to start" title={<>Tell me what<br />you&apos;re <em>thinking about.</em></>} description="A project, a question, a collaboration, or just an interesting tangent — my inbox is open." />
-      <SourceNote error={profileResponse.error} />
       <div className="contact-layout">
         <aside className="contact-aside">
           <div className="contact-aside__icon"><Mail aria-hidden="true" /></div>

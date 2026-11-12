@@ -20,7 +20,6 @@ export default function ArticlePage() {
   return (
     <main id="main-content" className="page-wrap inner-page article-page">
       <Link className="back-link" to="/journal"><ArrowLeft aria-hidden="true" /> All field notes</Link>
-      <SourceNote error={error} />
       <article>
         <header className="article-header">
           <div className="article-header__meta"><span>{article.tags?.[0] || 'Field note'}</span><time dateTime={article.date}>{new Date(`${article.date || '2026-03-18'}T12:00:00`).toLocaleDateString('en', { day: 'numeric', month: 'long', year: 'numeric' })}</time><span>{article.readTime || 'A short read'}</span></div>

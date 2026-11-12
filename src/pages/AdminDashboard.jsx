@@ -5,6 +5,7 @@ import { LoadingState } from '../components/LoadingState'
 import { articles, normalizeCollection, profile, projects } from '../data/portfolio'
 import { usePortfolioData } from '../hooks/usePortfolioData'
 import { apiRequest } from '../services/api'
+import { useClerk } from '@clerk/react'
 
 const sections = [
   { id: 'overview', label: 'Overview', icon: LayoutDashboard },
@@ -17,6 +18,7 @@ const sections = [
 
 export default function AdminDashboard() {
   const navigate = useNavigate()
+  const { signOut } = useClerk()
   const [activeSection, setActiveSection] = useState('overview')
   const [showProjectForm, setShowProjectForm] = useState(false)
   const [showArticleForm, setShowArticleForm] = useState(false)
@@ -156,11 +158,8 @@ export default function AdminDashboard() {
   }
 
   async function handleSignOut() {
-    try {
-      await apiRequest('/auth/logout', { method: 'POST' })
-    } finally {
-      navigate('/admin')
-    }
+    await signOut()
+    navigate('/admin', { replace: true })
   }
 
   if (isLoading) return <main className="admin-loading"><LoadingState label="Checking your admin session…" /></main>

@@ -12,7 +12,6 @@ export default function JournalPage() {
   return (
     <main id="main-content" className="page-wrap inner-page journal-page">
       <PageIntro eyebrow="Notes from the margins" title={<>A little room<br />to <em>think out loud.</em></>} description="Thoughts on building, learning, and the small details worth paying attention to." />
-      <SourceNote error={error} />
       <div className="journal-intro-note"><span>NOTEBOOK / 001</span><p>Not quite a blog. More like a place to leave the interesting bits.</p><ArrowDown aria-hidden="true" /></div>
       {articleList.length ? (
         <div className="journal-list">

@@ -20,10 +20,6 @@ export default function SiteLayout() {
   return (
     <div className="site-frame">
       <a className="skip-link" href="#main-content">Skip to content</a>
-      <div className="preview-ribbon" role="note">
-        <span className="preview-ribbon__dot" aria-hidden="true" />
-        Sample portfolio · replace this draft content with your own before launch
-      </div>
       <header className="site-header">
         <div className="site-header__inner">
           <Link className="brand-mark" to="/" aria-label="The Inquisitive Builder home" onClick={closeMenu}>

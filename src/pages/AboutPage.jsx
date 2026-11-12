@@ -20,8 +20,6 @@ export default function AboutPage() {
   return (
     <main id="main-content" className="page-wrap inner-page">
       <PageIntro eyebrow="A little about me" title={<>A mind that likes<br />to <em>pull things apart.</em></>} description={person.shortBio || 'The short version: I enjoy understanding how things work, then finding a thoughtful way to make them work better.'} />
-      <SourceNote error={profileResponse.error} />
-
       <section className="about-story">
         <div className="about-story__aside">
           <span className="about-aside__index">01 / THE STORY SO FAR</span>

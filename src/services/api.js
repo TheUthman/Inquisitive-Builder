@@ -1,6 +1,14 @@
 const configuredBase = import.meta.env.VITE_API_BASE_URL?.trim()
 const apiBase = (configuredBase || '/api/v1').replace(/\/$/, '')
 
+let authTokenGetter = null
+
+// Set by AuthTokenBridge while Clerk is mounted. The token is requested per
+// API call so expired tokens are refreshed by Clerk instead of being cached.
+export function setAuthTokenGetter(getter) {
+  authTokenGetter = typeof getter === 'function' ? getter : null
+}
+
 export class ApiError extends Error {
   constructor(message, status) {
     super(message)
@@ -12,6 +20,11 @@ export class ApiError extends Error {
 export async function apiRequest(path, options = {}) {
   const headers = new Headers(options.headers || {})
   headers.set('Accept', 'application/json')
+
+  if (authTokenGetter && !headers.has('Authorization')) {
+    const token = await authTokenGetter()
+    if (token) headers.set('Authorization', `Bearer ${token}`)
+  }
 
   let body = options.body
   if (body && typeof body !== 'string' && !(body instanceof FormData)) {

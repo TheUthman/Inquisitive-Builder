@@ -18,7 +18,6 @@ export default function ProjectsPage() {
   return (
     <main id="main-content" className="page-wrap inner-page projects-page">
       <PageIntro eyebrow="Selected work · 2023—26" title={<>A collection of<br /><em>curiosity, made visible.</em></>} description="A few projects, experiments and useful questions turned into things you can click on. Sample projects are used here until your own work is ready." />
-      <SourceNote error={error} />
       <div className="projects-toolbar">
         <div className="projects-toolbar__label"><SlidersHorizontal aria-hidden="true" /><span>Browse by kind</span></div>
         <div className="filter-list" role="group" aria-label="Filter projects">
